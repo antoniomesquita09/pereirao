@@ -1,0 +1,11 @@
+Person
+
+- id, name, cpf, email, user-id, job-id
+
+Schedule
+
+- id, worker-id, requester-id, date-time
+
+job
+
+- id, name, start-time, end-time

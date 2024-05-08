@@ -1,0 +1,16 @@
+services:
+  db:
+    image: postgres
+    environment:
+      - POSTGRES_USER=pereirao
+      - POSTGRES_PASSWORD=pereirao
+    ports:
+      - "5432:5432"
+
+  flyway:
+    image: flyway/flyway
+    command: -url=jdbc:postgresql://db:5432/pereirao -user=pereirao -password=pereirao -connectRetries=60 migrate
+    volumes:
+      - ./src/migrations:/flyway/sql
+    depends_on:
+      - db
